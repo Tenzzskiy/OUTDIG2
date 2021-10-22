@@ -1,0 +1,15 @@
+body{
+
+}
+.container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+    min-height: 800px;
+    min-width: 1440px;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+}
+

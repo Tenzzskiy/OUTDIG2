@@ -1,0 +1,21 @@
+.button{
+    margin: 0 auto;
+    min-width: 198px;
+    min-height: 56px;
+    border: 1px solid #ffffff;
+    background:none;
+    color: #ffffff;
+    border-radius: 5%;
+    font-family: Lab Grotesque,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    outline: none;
+
+}
+.button:hover {
+    transition: 500ms;
+    color: black;
+    background-color: white;
+}
