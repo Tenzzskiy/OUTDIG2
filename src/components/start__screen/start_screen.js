@@ -5,9 +5,9 @@ import {BrowserRouter, NavLink} from "react-router-dom";
 export const  StartScreen = () => {
   return (
 
-      <div>
+      <div className={s.container}>
 
-          <NavLink to="/PopApp" className={s.container} ><Button /></NavLink>
+         <Button />
 
         </div>
 

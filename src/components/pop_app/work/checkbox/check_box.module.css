@@ -1,0 +1,105 @@
+.checkbox_title{
+    font-family: Lab Grotesque,sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
+.checkbox_flex{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+.work_flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.checkbox_item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 488px;
+    border-bottom: 1px solid rgba(223, 227, 230, 0.54);
+
+    min-height: 56px;
+}
+
+
+.checkbox_item:last-child{
+    margin-bottom: 20px;
+}
+
+.checkbox_input{
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+}
+.checkbox_label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-family: Lab Grotesquem,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+    padding-left: 36px;
+    cursor: pointer;
+}
+.checkbox_label:before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #DFE3E6;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 17px;
+    left: 0;
+    z-index: 1;
+    transition: background .1s linear, border .500ms linear;
+}
+
+.checkbox_label:hover:before{
+    border: 1px solid black;
+}
+
+
+.checkbox_label:after{
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url("checkbox.svg") no-repeat ;
+    background-size: 16px 16px;
+    position: absolute;
+    top: 20px;
+    left: 3px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity .1s linear;
+}
+.checkbox_input:checked +.checkbox_label:before {
+    background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+    border: 1px solid #FF5E56FF;
+}
+
+.checkbox_input:checked +.checkbox_label:after {
+    opacity: 1;
+}
+.checkbox_label_item_1{
+    margin-right: 5px;
+}
+.checkbox_label_item_2{
+    opacity: 50%;
+}
+
+
+

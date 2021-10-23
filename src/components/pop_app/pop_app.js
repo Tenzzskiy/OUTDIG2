@@ -1,7 +1,8 @@
 import React from "react";
 import s from './pop_app.module.css';
 import closeButton from "./../assets/close_button.png"
-import {NavLink} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
+import {Work} from "./work/work";
 
 export class PopApp extends React.Component {
     constructor(props) {
@@ -11,7 +12,12 @@ export class PopApp extends React.Component {
                 button_class_2:s.item_6_second_button,
                 button_active_class_1:s.item_6_first_button_active,
                 button_active_class_2:s.item_6_second_button_active,
-                id:0
+                id:0,
+                newInputText:' ' ,
+                item_4_style: s.item_4,
+                input_error:s.input_error_description_0,
+                PopApp_work_path:"/PopApp",
+                currentValue: 0
             }
     }
 
@@ -35,8 +41,58 @@ export class PopApp extends React.Component {
 
     }
 
+    updateNewInputText(newText) {
+
+        this.state.newInputText = newText;
+    }
+
 
     render() {
+        let inputText = React.createRef();
+        let onInputChange = () =>{
+            let text = inputText.current.value ;
+            this.updateNewInputText(text);
+            this.setState({
+                newInputText: text ,
+                input_error:s.input_error_description_0,
+
+            })
+            console.log(text);
+            if ((isNaN(text) === true)  )
+
+            {
+                this.setState({
+                    item_4_style: s.item_4_error,
+                    input_error:s.input_error_description_1,
+                    PopApp_work_path:"/PopApp"
+                })
+
+            }
+            else {
+                if (text.length === 0){
+                    this.setState({
+                        item_4_style: s.item_4_error,
+                        input_error:s.input_error_description_1,
+                        PopApp_work_path:"/PopApp"
+                    })
+                }
+                else {
+                        this.setState({
+                            item_4_style: s.item_4,
+                            PopApp_work_path: "/PopApp/Work",
+                            currentValue: Number(text)
+
+                        })
+
+                    }
+                }
+            }
+
+
+
+
+
+
         return (
 
             <div className={s.container}>
@@ -52,10 +108,18 @@ export class PopApp extends React.Component {
                                 дохода.
                             </div>
                             <div className={s.item_3}>Ваша зарплата в месяц</div>
-                            <div className={s.item_4}>
-                                <input type="text" placeholder="Введите данные" autoFocus/>
+                            <div className={this.state.item_4_style}>
+                                <input type="text" placeholder="Введите данные" autoFocus ref={inputText} onChange={onInputChange}/>
+                                <div className={this.state.input_error}>Поле обязательно для заполнения или вы ввели неккоректный формат </div>
                             </div>
-                            <div className={s.item_5}>Рассчитать</div>
+                            <NavLink to={this.state.PopApp_work_path} className={s.item_5} >Рассчитать</NavLink>
+                            {/*=>>>>*/}
+
+                            <Route path='/PopApp/Work' render={ () =>  <Work  InputCurrentValue={this.state.currentValue}/>}/>
+
+
+
+
                             <div className={s.item_6_flex}>
                                 <div className={s.item_6_text}>Что уменьшаем?</div>
                                 <div className={this.state.button_class_1}>
