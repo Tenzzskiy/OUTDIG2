@@ -7,6 +7,13 @@
     text-align: center;
 
 }
+@media (max-width: 768px) {
+    .container{
+        min-height: 1024px;
+        min-width: 728px;
+    }
+
+}
 
 .modal{
     max-width: 552px;
@@ -14,6 +21,18 @@
     border-radius: 5%;
     background-color: white;
     margin: 0 auto;
+
+}
+@media (max-width: 330px) {
+    .modal{
+        min-height: 100%;
+        min-width: 100%;
+    }
+    .container{
+        background-color: white;
+        align-items: start;
+        text-align: start;
+    }
 
 }
 .modal__container{
@@ -202,6 +221,14 @@ display: flex;
     text-align: center;
 
 }
+.item_7_error{
+    display: flex;
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
 .item_7 button{
     background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
     box-shadow: 0 0 24px rgba(234, 0, 41, 0.33);
@@ -217,8 +244,23 @@ display: flex;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-
 }
+.item_7_error button{
+    background: #BEC5CC;
+    border-radius: 6px;
+    color: white;
+    min-width: 100%;
+    min-height: 56px;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+    font-family: Lab Grotesque,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
 .item_7 button:hover{
     background: #EA0029;
     transition: 500ms;

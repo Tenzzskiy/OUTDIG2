@@ -17,7 +17,9 @@ export class PopApp extends React.Component {
                 item_4_style: s.item_4,
                 input_error:s.input_error_description_0,
                 PopApp_work_path:"/PopApp",
-                currentValue: 0
+                currentValue: 0,
+                AddButtonStyle: s.item_7_error,
+
             }
     }
 
@@ -46,6 +48,12 @@ export class PopApp extends React.Component {
         this.state.newInputText = newText;
     }
 
+    turnActiveButton_3 = () =>{
+        this.setState({
+            AddButtonStyle: s.item_7
+        })
+    }
+
 
     render() {
         let inputText = React.createRef();
@@ -55,6 +63,7 @@ export class PopApp extends React.Component {
             this.setState({
                 newInputText: text ,
                 input_error:s.input_error_description_0,
+                PopApp_work_path:"/PopApp"
 
             })
             console.log(text);
@@ -109,10 +118,10 @@ export class PopApp extends React.Component {
                             </div>
                             <div className={s.item_3}>Ваша зарплата в месяц</div>
                             <div className={this.state.item_4_style}>
-                                <input type="text" placeholder="Введите данные" autoFocus ref={inputText} onChange={onInputChange}/>
+                                <input type="text" placeholder="Введите данные" autoFocus ref={inputText} onChange={onInputChange}  />
                                 <div className={this.state.input_error}>Поле обязательно для заполнения или вы ввели неккоректный формат </div>
                             </div>
-                            <NavLink to={this.state.PopApp_work_path} className={s.item_5} >Рассчитать</NavLink>
+                            <NavLink to={this.state.PopApp_work_path} className={s.item_5} onClick={this.turnActiveButton_3} >Рассчитать</NavLink>
                             {/*=>>>>*/}
 
                             <Route path='/PopApp/Work' render={ () =>  <Work  InputCurrentValue={this.state.currentValue}/>}/>
@@ -129,7 +138,7 @@ export class PopApp extends React.Component {
                                     <button className={s.button_2} onClick={this.turnActiveButton_2}>Срок</button>
                                 </div>
                             </div>
-                            <div className={s.item_7}>
+                            <div className={this.state.AddButtonStyle}>
                                 <button>Добавить</button>
                             </div>
 
