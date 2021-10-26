@@ -23,6 +23,7 @@ export class PopApp extends React.Component {
             }
     }
 
+
     turnActiveButton_1 = () => {
        if (this.state.button_class_1 === s.item_6_first_button ){
            this.setState({
@@ -97,9 +98,10 @@ export class PopApp extends React.Component {
                 }
             }
 
-
-
-
+        let onClickCurrent = () =>{
+            this.turnActiveButton_3();
+            onInputChange();
+        }
 
 
         return (
@@ -118,13 +120,13 @@ export class PopApp extends React.Component {
                             </div>
                             <div className={s.item_3}>Ваша зарплата в месяц</div>
                             <div className={this.state.item_4_style}>
-                                <input type="text" placeholder="Введите данные" autoFocus ref={inputText} onChange={onInputChange}  />
+                                <input type="text" placeholder="Введите данные" autoFocus ref={inputText}    />
                                 <div className={this.state.input_error}>Поле обязательно для заполнения или вы ввели неккоректный формат </div>
                             </div>
-                            <NavLink to={this.state.PopApp_work_path} className={s.item_5} onClick={this.turnActiveButton_3} >Рассчитать</NavLink>
+                            <NavLink to={this.state.PopApp_work_path} className={s.item_5} onClick={onClickCurrent} >Рассчитать</NavLink>
                             {/*=>>>>*/}
 
-                            <Route path='/PopApp/Work' render={ () =>  <Work  InputCurrentValue={this.state.currentValue}/>}/>
+                            <Route path='/PopApp/Work' render={ () =>  <Work  InputCurrentValue={this.state.currentValue} />}/>
 
 
 
